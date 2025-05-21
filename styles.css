@@ -1,3 +1,36 @@
+.text-inthiyaz{
+    color: red;
+    text-align: center;
+}
+.gradient-text {
+    background: linear-gradient(
+      90deg,
+      #ff4b2b,
+      #ffb400,
+      #00c6ff,
+      #43e97b,
+      #f441a5,
+      #7f53ac,
+      #ffe53b,
+      #00f2fe
+    );
+    background-size: 300% 100%;
+    background-clip: text;
+    -webkit-background-clip: text;
+    color: transparent;
+    -webkit-text-fill-color: transparent;
+    animation: gradientMove 4s linear infinite;
+  }
+  
+  @keyframes gradientMove {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+  
 body {
   margin: 0;
   padding: 0;
@@ -58,7 +91,7 @@ body {
   from { opacity: 0; transform: translateY(40px); }
   to { opacity: 1; transform: translateY(0); }
 }
-.title {
+/* #title {
   font-size: 2.8rem;
   font-weight: 700;
   letter-spacing: 2px;
@@ -67,7 +100,7 @@ body {
   background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-}
+} */
 .subtitle {
   text-align: center;
   font-size: 1.3rem;

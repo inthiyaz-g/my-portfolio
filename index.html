@@ -15,12 +15,13 @@
       <li><a href="#contact">Contact</a></li>
     </ul>
   </nav>
+
   <div class="container">
     <header class="fade-in" id="home">
-      <h1 class="title">Inthiyaz</h1>
-      <p class="subtitle">As Angular Developer</p>
-      <p class="subtitle">5+ Years Experience</p>
-    </header>
+        <h1 class="text-inthiyaz">Inthiyaz</h1>
+        <p class="subtitle">As Angular Developer</p>
+        <p class="subtitle">5+ Years Experience</p>
+      </header>
     <section class="skills-section slide-in" id="skills">
       <h2>Skills</h2>
       <ul class="skills-list">
@@ -56,5 +57,22 @@
     </footer>
   </div>
   <script src="script.js"></script>
+  <script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // Show fade-in elements
+      document.querySelectorAll('.fade-in, .slide-in').forEach(function(el) {
+        el.style.opacity = 1;
+      });
+  
+      // Change text color to red
+      var titleEl = document.querySelector('.title');
+      if (titleEl) {
+        console.log('Found title:', titleEl); // debug
+        titleEl.style.color = 'red';
+      } else {
+        console.log('Title element not found');
+      }
+    });
+  </script>
 </body>
 </html>
