@@ -10,7 +10,7 @@
       whatsappBtn.addEventListener('click', function() {
         var phone = ''; // Add your number if needed
         var message = encodeURIComponent('Hi Inthiyaz, I found your portfolio and would like to connect!');
-        var url = 'https://wa.me/' + phone + '?text=' + message;
+        var url = 'https://wa.me/+918074430513' + phone + '?text=' + message;
         window.open(url, '_blank');
       });
     }
