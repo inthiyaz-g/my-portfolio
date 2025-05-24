@@ -8,12 +8,20 @@
   </head>
   <body>
     <nav class="navbar fade-in">
+      <input type="checkbox" id="nav-toggle" class="nav-toggle" />
+      <label for="nav-toggle" class="nav-toggle-label">
+        <span></span>
+        <span></span>
+        <span></span>
+      </label>
       <ul class="navbar-list">
         <li><a href="#home">Home</a></li>
         <li><a href="#skills">Skills</a></li>
         <li><a href="#projects">Work Experience</a></li>
         <li><a href="#contact">Contact</a></li>
-        <li><a href="https://www.naukri.com/" download>Download Resume</a></li>
+        <li>
+          <a href="https://www.naukri.com/" download>Download Resume</a>
+        </li>
         <li>
           <a
             href="https://github.com/inthiyaz-g"
@@ -27,10 +35,116 @@
             href="https://www.linkedin.com/in/inthiyaz-g-373b31115/"
             target="_blank"
             rel="noopener noreferrer"
-            >linkedIn</a
+            >LinkedIn</a
           >
         </li>
       </ul>
+      <style>
+        .navbar {
+          width: 100%;
+          background: linear-gradient(90deg, #f8fafc 0%, #e3f0ff 100%);
+          box-shadow: 0 2px 12px rgba(0, 0, 0, 0.06);
+          position: sticky;
+          top: 0;
+          z-index: 100;
+          border-radius: 0 0 18px 18px;
+          padding: 0 2vw;
+        }
+        .navbar-list {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          gap: 2rem;
+          list-style: none;
+          margin: 0;
+          padding: 1.2rem 0;
+        }
+        .navbar-list li a {
+          text-decoration: none;
+          color: #222;
+          font-weight: 600;
+          font-size: 1.08rem;
+          letter-spacing: 0.02em;
+          padding: 0.5rem 1.1rem;
+          border-radius: 6px;
+          transition: background 0.18s, color 0.18s, box-shadow 0.18s;
+        }
+        .navbar-list li a:hover,
+        .navbar-list li a:focus {
+          background: #e3f0ff;
+          color: #007bff;
+          box-shadow: 0 2px 8px rgba(0, 123, 255, 0.08);
+          outline: none;
+        }
+        .nav-toggle {
+          display: none;
+        }
+        .nav-toggle-label {
+          display: none;
+          flex-direction: column;
+          cursor: pointer;
+          width: 36px;
+          height: 36px;
+          justify-content: center;
+          align-items: center;
+          margin-left: 1rem;
+          z-index: 101;
+        }
+        .nav-toggle-label span {
+          display: block;
+          width: 30px;
+          height: 3.5px;
+          background: #007bff;
+          margin: 5px 0;
+          border-radius: 2px;
+          transition: 0.3s;
+        }
+        @media (max-width: 900px) {
+          .navbar-list {
+            gap: 1.2rem;
+          }
+        }
+        @media (max-width: 700px) {
+          .nav-toggle-label {
+            display: flex;
+          }
+          .navbar-list {
+            position: absolute;
+            top: 60px;
+            left: 0;
+            right: 0;
+            background: #fff;
+            flex-direction: column;
+            align-items: flex-start;
+            padding: 1.2rem 2rem;
+            gap: 1rem;
+            box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+            display: none;
+            border-radius: 0 0 18px 18px;
+            animation: slideDown 0.3s;
+          }
+          .nav-toggle:checked + .nav-toggle-label + .navbar-list {
+            display: flex;
+          }
+          @keyframes slideDown {
+            from {
+              opacity: 0;
+              transform: translateY(-16px);
+            }
+            to {
+              opacity: 1;
+              transform: translateY(0);
+            }
+          }
+        }
+        /* Add subtle shadow on scroll */
+        .navbar {
+          transition: box-shadow 0.2s;
+        }
+        .navbar.scrolled {
+          box-shadow: 0 4px 18px rgba(0, 123, 255, 0.08);
+        }
+      </style>
     </nav>
 
     <div class="container">
