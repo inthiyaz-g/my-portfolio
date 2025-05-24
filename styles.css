@@ -1,75 +1,22 @@
-.text-inthiyaz{
-    color: red;
-    text-align: center;
-    margin-bottom: 0.5em;
-}
-.subtitle{
-  text-align: center;
-}
-.subtitle.typewriter {
-  overflow: hidden;
-  border-right: .15em solid #00c6ff;
-  white-space: nowrap;
-  margin: 0 auto;
-  letter-spacing: .08em;
-  animation: typing 2.5s steps(22, end) 1s 1 normal both, blink-caret .75s step-end infinite;
-}
-.typewriter{
-  width: auto;
-}
-@keyframes typing {
-  from { width: 0 }
-  to { width: 21ch }
-}
-@keyframes blink-caret {
-  from, to { border-color: transparent }
-  50% { border-color: #00c6ff; }
-}
-.gradient-text {
-    background: linear-gradient(
-      90deg,
-      #ff4b2b,
-      #ffb400,
-      #00c6ff,
-      #43e97b,
-      #f441a5,
-      #7f53ac,
-      #ffe53b,
-      #00f2fe
-    );
-    background-size: 300% 100%;
-    background-clip: text;
-    -webkit-background-clip: text;
-    color: transparent;
-    -webkit-text-fill-color: transparent;
-    animation: gradientMove 4s linear infinite;
-  }
-  
-  @keyframes gradientMove {
-    0% {
-      background-position: 0% 50%;
-    }
-    100% {
-      background-position: 100% 50%;
-    }
-  }
-  
+/* === Base Styles === */
 body {
   min-height: 100vh;
   margin: 0;
   padding: 0;
-  background: linear-gradient(rgba(0, 38, 66, 0.7), rgba(0, 198, 255, 0.5)), url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
+  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
+  color: #f8fafc;
+  background: linear-gradient(120deg, #232526 0%, #00c6ff 100%), 
+    url('https://images.unsplash.com/photo-1465101046530-73398c7f28ca?auto=format&fit=crop&w=1500&q=80') no-repeat center center fixed;
   background-size: cover;
   background-attachment: fixed;
-  font-family: 'Segoe UI', 'Roboto', Arial, sans-serif;
-  color: #fff;
 }
 
+/* === Navbar === */
 .navbar {
   width: 100%;
   background: linear-gradient(90deg, #232526 0%, #00c6ff 100%);
-  padding: 0.5em 0;
-  box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+  padding: 0.7em 0;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.10);
   position: sticky;
   top: 0;
   z-index: 100;
@@ -87,13 +34,14 @@ body {
   text-decoration: none;
   font-weight: 600;
   font-size: 1.1rem;
-  padding: 8px 18px;
-  border-radius: 20px;
-  transition: background 0.2s, color 0.2s;
+  padding: 10px 22px;
+  border-radius: 22px;
+  transition: background 0.2s, color 0.2s, box-shadow 0.2s;
 }
 .navbar-list li a:hover {
   background: #fff;
   color: #00c6ff;
+  box-shadow: 0 2px 8px rgba(0,198,255,0.13);
 }
 @media (max-width: 600px) {
   .navbar-list {
@@ -104,72 +52,162 @@ body {
     padding: 7px 10px;
   }
 }
+
+/* === Container & Glass Effect === */
 .container {
-  max-width: 800px;
-  margin: 40px auto;
-  background: rgba(30, 30, 30, 0.95);
-  border-radius: 20px;
-  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
-  padding: 32px 24px 24px 24px;
+  max-width: 850px;
+  margin: 48px auto;
+  background: rgba(30, 30, 40, 0.93);
+  border-radius: 22px;
+  box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.25);
+  padding: 38px 28px 28px 28px;
+  position: relative;
+  overflow: hidden;
   animation: fadeInContainer 1.2s cubic-bezier(0.4,0,0.2,1);
 }
-@keyframes fadeInContainer {
-  from { opacity: 0; transform: translateY(40px); }
-  to { opacity: 1; transform: translateY(0); }
+.container::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  background: url('https://cdn.jsdelivr.net/gh/devicons/devicon/icons/angularjs/angularjs-original.svg') no-repeat 95% 10%,
+              url('https://www.transparenttextures.com/patterns/cubes.png');
+  background-size: 120px 120px, auto;
+  opacity: 0.12;
+  filter: blur(0.5px) drop-shadow(0 0 12px #dd0031);
+  pointer-events: none;
+  animation: angularBgMove 12s linear infinite alternate;
 }
-/* #title {
-  font-size: 2.8rem;
+@keyframes angularBgMove {
+  0% { background-position: 95% 10%, 0 0; }
+  100% { background-position: 80% 30%, 40px 40px; }
+}
+@keyframes fadeInContainer {
+  from { opacity: 0; transform: translateY(40px);}
+  to { opacity: 1; transform: translateY(0);}
+}
+
+/* === Headings & Text === */
+.text-inthiyaz {
+  text-align: center;
+  margin-bottom: 0.5em;
+  font-size: 2.7rem;
   font-weight: 700;
   letter-spacing: 2px;
-  margin-bottom: 0.2em;
-  text-align: center;
-  background: linear-gradient(90deg, #00c6ff 0%, #0072ff 100%);
+  background: linear-gradient(90deg, #00c6ff 0%, #43e97b 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-} */
+  background-clip: text;
+}
+.subtitle {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #e0e7ef;
+  margin-bottom: 1.2em;
+}
+.subtitle.typewriter {
+  overflow: hidden;
+  border-right: .15em solid #00c6ff;
+  white-space: nowrap;
+  margin: 0 auto;
+  letter-spacing: .08em;
+  animation: typing 2.5s steps(22, end) 1s 1 normal both, blink-caret .75s step-end infinite;
+}
+@keyframes typing {
+  from { width: 0 }
+  to { width: 21ch }
+}
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: #00c6ff; }
+}
+
+/* === Skills Section === */
 .skills-section {
   text-align: center;
-  margin-bottom: 2em;
+  margin-bottom: 2.2em;
 }
 .skills-list {
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 1.2em;
+  gap: 1.1em;
   padding: 0;
   list-style: none;
   margin: 1em 0 0 0;
 }
+/* ...existing code... */
 .skills-list li {
-  background: rgba(0,198,255,0.15);
-  border-radius: 12px;
-  padding: 0.5em 1.2em;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5em;
+  background: #232526;
+  color: #00c6ff;
+  border-radius: 999px;
+  padding: 0.45em 1.3em;
   font-weight: 500;
-  color: #fff;
+  font-size: 1.05rem;
+  margin: 0.2em 0.2em;
+  box-shadow: 0 2px 8px rgba(0,198,255,0.09);
+  border: 1.5px solid #00c6ff;
+  transition: background 0.2s, color 0.2s, border 0.2s, box-shadow 0.2s;
+  cursor: default;
 }
+.skills-list li::before {
+  content: "★";
+  font-size: 0.95em;
+  color: #43e97b;
+  opacity: 0.7;
+}
+.skills-list li:hover {
+  background: #00c6ff;
+  color: #fff;
+  border-color: #43e97b;
+  box-shadow: 0 4px 16px rgba(67,233,123,0.13);
+}
+/* ...existing code... */
+
+/* === Projects Section === */
 .projects-section {
   text-align: center;
   margin-bottom: 2em;
 }
+.projects-section h2 {
+  color: #00c6ff;
+  margin-bottom: 1.2em;
+}
 .project-card {
   background: rgba(0,198,255,0.10);
-  border-radius: 14px;
-  margin: 1em auto;
-  padding: 1em 1.5em;
-  max-width: 500px;
-  box-shadow: 0 2px 8px rgba(0,198,255,0.08);
+  border-radius: 16px;
+  margin: 1.2em auto;
+  padding: 1.1em 1.7em;
+  max-width: 520px;
+  box-shadow: 0 2px 12px rgba(0,198,255,0.10);
   text-align: left;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  cursor: pointer;
 }
 .project-card h3 {
   margin-top: 0;
   margin-bottom: 0.3em;
   color: #00c6ff;
-  text-align: left;
+  font-size: 1.25rem;
 }
 .project-card p {
   margin: 0;
-  color: #fff;
+  color: #b2eaff;
 }
+.project-card:hover {
+  transform: translateY(-6px) scale(1.03);
+  box-shadow: 0 8px 24px rgba(0, 198, 255, 0.18),
+    0 1.5px 6px rgba(0, 0, 0, 0.10);
+  background: #232526;
+}
+.project-card:hover h3 {
+  color: #43e97b;
+}
+
+/* === Footer & Button === */
 .footer {
   display: flex;
   justify-content: center;
@@ -179,18 +217,44 @@ body {
   text-align: center;
 }
 .whatsapp-btn {
-  background: linear-gradient(90deg, #00c6ff 0%, #43e97b 100%);
+  background: linear-gradient(90deg, #25d366 60%, #128c7e 100%);
   color: #fff;
   border: none;
-  border-radius: 24px;
-  padding: 0.7em 2em;
+  border-radius: 26px;
+  padding: 0.8em 2.2em;
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
-  box-shadow: 0 2px 8px rgba(0,198,255,0.12);
-  transition: background 0.2s, color 0.2s;
+  box-shadow: 0 2px 8px rgba(37,211,102,0.13);
+  transition: background 0.2s, color 0.2s, transform 0.2s;
 }
 .whatsapp-btn:hover {
   background: #fff;
-  color: #00c6ff;
+  color: #25d366;
+  transform: scale(1.05);
+}
+
+/* === Gradient Text Animation (optional for headings) === */
+.gradient-text {
+  background: linear-gradient(
+    90deg,
+    #ff4b2b,
+    #ffb400,
+    #00c6ff,
+    #43e97b,
+    #f441a5,
+    #7f53ac,
+    #ffe53b,
+    #00f2fe
+  );
+  background-size: 300% 100%;
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+  -webkit-text-fill-color: transparent;
+  animation: gradientMove 4s linear infinite;
+}
+@keyframes gradientMove {
+  0% { background-position: 0% 50%; }
+  100% { background-position: 100% 50%; }
 }
