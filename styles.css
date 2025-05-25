@@ -136,7 +136,6 @@ body {
   list-style: none;
   margin: 1em 0 0 0;
 }
-/* ...existing code... */
 .skills-list li {
   display: inline-flex;
   align-items: center;
@@ -165,7 +164,42 @@ body {
   border-color: #43e97b;
   box-shadow: 0 4px 16px rgba(67,233,123,0.13);
 }
-/* ...existing code... */
+
+/* === Education Section === */
+.education-section {
+  text-align: center;
+  margin-bottom: 2.2em;
+}
+.education-section h2 {
+  color: #43e97b;
+  margin-bottom: 1.2em;
+}
+.education-card {
+  background: rgba(67,233,123,0.10);
+  border-radius: 16px;
+  margin: 1.2em auto;
+  padding: 1.1em 1.7em;
+  max-width: 420px;
+  box-shadow: 0 2px 12px rgba(67,233,123,0.10);
+  text-align: left;
+  transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+  cursor: default;
+}
+.education-card h3 {
+  margin-top: 0;
+  margin-bottom: 0.3em;
+  color: #43e97b;
+  font-size: 1.18rem;
+}
+.education-card p {
+  margin: 0;
+  color: #b2eaff;
+}
+.education-card:hover {
+  transform: translateY(-4px) scale(1.02);
+  box-shadow: 0 8px 24px rgba(67,233,123,0.18), 0 1.5px 6px rgba(0,0,0,0.10);
+  background: #232526;
+}
 
 /* === Projects Section === */
 .projects-section {
@@ -257,4 +291,101 @@ body {
 @keyframes gradientMove {
   0% { background-position: 0% 50%; }
   100% { background-position: 100% 50%; }
+}
+
+/* === 3D Effects & Interactivity === */
+.container, .project-card, .skills-section, .projects-section, .navbar {
+  perspective: 1200px;
+}
+.project-card {
+  transform-style: preserve-3d;
+  box-shadow: 0 8px 32px 0 rgba(31,38,135,0.25), 0 1.5px 6px rgba(0,0,0,0.10);
+  transition: transform 0.4s cubic-bezier(.25,.8,.25,1), box-shadow 0.3s;
+  background: rgba(255,255,255,0.07);
+  border-radius: 18px;
+  will-change: transform, box-shadow;
+}
+.project-card.animated, .project-card:hover {
+  transform: rotateY(8deg) scale(1.04) translateZ(12px);
+  box-shadow: 0 16px 48px 0 rgba(31,38,135,0.28), 0 3px 12px rgba(0,198,255,0.13);
+  background: rgba(255,255,255,0.13);
+}
+.skills-section, .projects-section {
+  transform-style: preserve-3d;
+  transition: transform 0.4s cubic-bezier(.25,.8,.25,1);
+}
+.skills-section.animated, .projects-section.animated {
+  transform: rotateX(6deg) scale(1.01) translateZ(8px);
+}
+.navbar {
+  box-shadow: 0 4px 24px rgba(0,198,255,0.13), 0 2px 12px rgba(0,0,0,0.10);
+  transform-style: preserve-3d;
+  transition: box-shadow 0.2s, transform 0.3s;
+}
+.navbar.scrolled {
+  transform: translateZ(18px) scale(1.01);
+  box-shadow: 0 8px 32px rgba(0,198,255,0.18), 0 4px 18px rgba(0,123,255,0.08);
+}
+.skills-list li {
+  transition: transform 0.4s cubic-bezier(.25,.8,.25,1), box-shadow 0.3s;
+  transform-style: preserve-3d;
+}
+.skills-list li.animated, .skills-list li:hover {
+  transform: rotateY(-10deg) scale(1.08) translateZ(10px);
+  box-shadow: 0 4px 16px rgba(0,198,255,0.13);
+  background: rgba(255,255,255,0.10);
+}
+.cube-3d-img-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 2.5em 0 1.5em 0;
+  perspective: 900px;
+}
+.cube-3d-img {
+  width: 180px;
+  max-width: 80vw;
+  box-shadow: 0 12px 32px rgba(0, 123, 255, 0.18), 0 2px 8px rgba(0,0,0,0.08);
+  border-radius: 18px;
+  transform: rotateY(-18deg) rotateX(8deg) scale(1.04);
+  transition: transform 0.3s, box-shadow 0.3s;
+  background: linear-gradient(120deg, #e3f0ff 60%, #f8fafc 100%);
+}
+.cube-3d-img:hover {
+  transform: rotateY(0deg) rotateX(0deg) scale(1.08);
+  box-shadow: 0 20px 48px rgba(0, 123, 255, 0.22), 0 4px 16px rgba(0,0,0,0.12);
+}
+@media (max-width: 600px) {
+  .cube-3d-img {
+    width: 120px;
+  }
+  .cube-3d-img-wrapper {
+    margin: 1.5em 0 1em 0;
+  }
+}
+  max-width: 220px;
+  width: 100%;
+  border-radius: 18px;
+  background: rgba(255,255,255,0.08);
+  backdrop-filter: blur(2px);
+  margin-bottom: 1.5em;
+  box-shadow: 0 8px 32px rgba(0,198,255,0.18), 0 2px 12px rgba(0,0,0,0.08);
+  transform: perspective(600px) rotateY(18deg) scale(1.08);
+  transition: transform 0.4s cubic-bezier(.25,.8,.25,1), box-shadow 0.3s;
+}
+.cube-3d-img:hover, .cube-3d-img:focus {
+  transform: perspective(600px) rotateY(-12deg) rotateX(8deg) scale(1.13);
+  box-shadow: 0 16px 48px rgba(0,123,255,0.18), 0 4px 24px rgba(0,0,0,0.14);
+  outline: none;
+}
+@media (max-width: 700px) {
+  .container, .project-card, .skills-section, .projects-section {
+    perspective: 600px;
+  }
+  .project-card.animated, .project-card:hover {
+    transform: rotateY(3deg) scale(1.02) translateZ(4px);
+  }
+  .skills-section.animated, .projects-section.animated {
+    transform: rotateX(2deg) scale(1.01) translateZ(2px);
+  }
 }
